@@ -11,7 +11,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '' },
-    target: process.env.LOCAL ? infoProxy.localProxy : infoProxy.stageProxy,
+    target: 'https://cr-back.herokuapp.com/',
     changeOrigin: true,
     secure: false,
   }
