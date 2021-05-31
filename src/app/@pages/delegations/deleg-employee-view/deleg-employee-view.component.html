@@ -1,0 +1,26 @@
+<div class="container text-center">
+  <h1 class="m-4">All your delegations</h1>
+  <table class="table table-striped">
+    <tbody>
+      <tr class="bg-dark text-white">
+        <th class="right-align" scope="col">Start Date</th>
+        <th class="right-align" scope="col">End Date</th>
+        <th class="left-align" scope="col">Reason</th>
+        <th class="left-align" scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+      <tr *ngFor="let delegation of delegations">
+        <td class="right-align">{{delegation.startDate}}</td>
+        <td class="right-align">{{delegation.endDate}}</td>
+        <td class="left-align">{{delegation.reason}}</td>
+        <td [ngClass]=" delegation.status == 'ACCEPTED' ? 'table-success' : (delegation.status == 'REJECTED' ? 'table-danger' : null)" class="left-align">{{delegation.status}}</td>
+        <td>
+          <button *ngIf="delegation.status == 'ACCEPTED'" type="button" class="btn btn-sm btn-dark"
+                  (click)="generateDocument(delegation.id, $event);">
+            Generate Document
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

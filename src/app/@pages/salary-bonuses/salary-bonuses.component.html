@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<h1>{{salaryData.name}} {{salaryData.surname}}</h1>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">Your current salary</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{salaryData.salary}} PLN</h1>
+        <button (click)="changeSalaryHistoryVisibility()" *ngIf="salaryHistoryVisible; else elseBlock" type="button" class="w-100 btn btn-lg btn-primary">Hide salary history</button>
+        <ng-template #elseBlock><button (click)="changeSalaryHistoryVisibility()" type="button" class="w-100 btn btn-lg btn-primary">Show salary history</button></ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">Your bonuses</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">Annual bonus: {{salaryData.bonusesTotal}} PLN</h1>
+        <h1 class="card-title pricing-card-title">Bonuses used: {{salaryData.bonusesUsed}} PLN</h1>
+        <h1 class="card-title pricing-card-title">Bonuses used: {{salaryData.percent}}%</h1>
+        <button (click)="changeBonusesHistoryVisibility()" *ngIf="bonusesHistoryVisible; else elseBlock2" type="button" class="w-100 btn btn-lg btn-primary">Hide bonuses history</button>
+        <ng-template #elseBlock2><button (click)="changeBonusesHistoryVisibility()" type="button" class="w-100 btn btn-lg btn-primary">Show bonuses history</button></ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<app-salary-history *ngIf="salaryHistoryVisible"></app-salary-history>
+<app-bonuses-history *ngIf="bonusesHistoryVisible"></app-bonuses-history>

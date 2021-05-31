@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+  <h1 class="m-4">Employees delegations summary</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Number of delegations</th>
+      <th scope="col">Sum of days</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of this.delegationEmployees">
+      <td>{{employee.employeeName}}</td>
+      <td>{{employee.employeeSurname}}</td>
+      <td>{{employee.employeeEmail}}</td>
+      <td>{{employee.numberOfDelegations}}</td>
+      <td>{{employee.numberOfDays}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

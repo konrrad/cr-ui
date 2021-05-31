@@ -1,0 +1,35 @@
+<div class="container text-center">
+  <h1 class="m-4">Apply for future delegation</h1>
+  <div class="row justify-content-center">
+    <form #delegForm="ngForm" id="deleg-form" (ngSubmit) = "onSubmit()">
+      <div class="form-column align-items-center">
+
+        <div class="col-sm left-align">
+          <label for="dateFrom">Date from</label>
+          <div class="input-group mb-2">
+            <input type="date" class="form-control" id="dateFrom" placeholder="dateFrom"  [(ngModel)]="delegationApplication.startDate" name="startDate">
+          </div>
+        </div>
+
+        <div class="col-sm left-align">
+          <label  for="dateTo">Date to</label>
+          <div class="input-group mb-2">
+            <input type="date" class="form-control" id="dateTo" placeholder="dateTo" required [(ngModel)]="delegationApplication.endDate" name="endDate">
+          </div>
+        </div>
+
+        <div class="col-auto left-align">
+          <label for="reason">Reason</label>
+          <div class="input-group mb-2">
+            <input required  type="text" class="form-control" id="reason" placeholder="Reason" [(ngModel)]="delegationApplication.reason" name="reason">
+
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <button type = "submit" class="btn btn-dark">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

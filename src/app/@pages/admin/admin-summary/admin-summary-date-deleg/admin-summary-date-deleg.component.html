@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+  <h1 class="m-4">Most used delegations start dates</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Start date</th>
+      <th scope="col">Number of delegations</th>
+      <th scope="col">Sum of days</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of this.delegationStartDays">
+      <td>{{data.startDate}}</td>
+      <td>{{data.numberOfDelegations}}</td>
+      <td>{{data.numberOfDays}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

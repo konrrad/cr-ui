@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<button id="createContract" (click)="showContractGenerator()" type="button" class="btn btn-primary">Create contract</button>
+<div class="container text-center">
+  <h1 class="m-4">Employees</h1>
+  <table class="table table-striped">
+    <tr class="bg-dark text-white">
+      <th class="left-align" scope="col">Full Name</th>
+      <th class="left-align" scope="col">Contract type</th>
+      <th class="right-align" scope="col">Contract start date</th>
+      <th class="right-align" scope="col">Contract end date</th>
+      <th scope="col"></th>
+    </tr>
+    <tr *ngFor="let employee of employeesWithContract">
+      <td class="left-align">{{employee.name}} {{employee.surname}}</td>
+      <td class="left-align">{{employee.type}}</td>
+      <td class="right-align">{{employee.startDate}}</td>
+      <td class="right-align">{{employee.endDate}}</td>
+      <td>
+       <app-admin-employees-contracts-row [employeeWithContract] = "employee"></app-admin-employees-contracts-row>
+    </tr>
+  </table>
+</div>
+<app-admin-employees-contracts-all>
+</app-admin-employees-contracts-all>
+<app-admin-contract-gen>
+</app-admin-contract-gen>
+

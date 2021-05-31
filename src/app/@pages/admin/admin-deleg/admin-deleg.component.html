@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+  <h1 class="m-4">All delegations list</h1>
+  <table class="table table-striped">
+    <tbody>
+      <tr class="bg-dark text-white">
+        <th class="left-align" scope="col">Full Name</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th class="left-align" scope="col">Reason</th>
+        <th class="left-align" scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+      <tr *ngFor="let delegation of delegations">
+        <td class="left-align">{{delegation.employeeName}} {{delegation.employeeSurname}}</td>
+        <td>{{delegation.startDate}}</td>
+        <td>{{delegation.endDate}}</td>
+        <td class="left-align">{{delegation.reason}}</td>
+        <td [ngClass]=" delegation.status == 'ACCEPTED' ? 'table-success' :
+        (delegation.status == 'REJECTED' ? 'table-danger' : null)" class="left-align">{{delegation.status}}
+        </td>
+        <td *ngIf="delegation.status == 'PENDING'" class="p-2">
+          <button style="margin-right: 2px" type="button" class="btn btn-success btn-sm"
+                  (click)="changeStatus(delegation.id, delegation.status, this.statuses.ACCEPTED, $event);">
+            Accept
+          </button>
+          <button type="button" class="btn btn-danger btn-sm"
+                  (click)="changeStatus(delegation.id, delegation.status, this.statuses.REJECTED, $event);">
+            Reject
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

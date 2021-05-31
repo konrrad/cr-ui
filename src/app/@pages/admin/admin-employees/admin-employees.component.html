@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+  <h1 class="m-4">Employees</h1>
+  <button id="addNew" (click)="showEmployeeEditForm()" type="button" class="btn btn-primary">Add new employee</button>
+  <table class="table table-striped">
+    <tbody>
+     <tr class="bg-dark text-white">
+       <th class="left-align" scope="col">Full Name</th>
+       <th class="left-align" scope="col">Email</th>
+       <th class="left-align" scope="col">Administrator</th>
+       <th scope="col"></th>
+     </tr>
+     <tr *ngFor="let employee of employees">
+       <td class="left-align">{{employee.name}} {{employee.surname}}</td>
+       <td class="left-align">{{employee.email}}</td>
+       <td class="left-align">{{employee.administrator? "Yes":"No"}}</td>
+       <td>
+          <app-admin-employees-row [employee] = "employee"></app-admin-employees-row>
+       </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+<app-admin-employees-form></app-admin-employees-form>
+

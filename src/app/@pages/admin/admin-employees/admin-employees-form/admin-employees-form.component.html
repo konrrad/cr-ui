@@ -1,0 +1,48 @@
+<form [hidden]="this.isHidden">
+  <h2>Edit/Add employee</h2>
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" [value]="employee.name" [(ngModel)]="employee.name"
+             name="name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputSurname" class="col-sm-2 col-form-label">Surname</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputSurname" [value]="employee.surname"
+             [(ngModel)]="employee.surname" name="surname">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail" [value]="employee.email" [(ngModel)]="employee.email"
+             name="email">
+    </div>
+  </div>
+  <div class="form-group row" *ngIf="!employee.id">
+    <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" [(ngModel)]="employee.password" name="passwd">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="inputAdmin"
+               [value]="employee.administrator" [(ngModel)]="employee.administrator" name="admin">
+        <label class="form-check-label" for="inputAdmin">
+          Administrator privileges
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div style="display:inline;" class="col-auto">
+      <button (click)="this.isHidden = !this.isHidden" style="margin-right: 12px" class="btn btn-secondary">Cancel</button>
+      <button (click)="addEditEmployee()" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>

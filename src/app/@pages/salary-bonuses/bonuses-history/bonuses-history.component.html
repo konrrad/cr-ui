@@ -1,0 +1,15 @@
+<div class="container-fluid text-center">
+  <h1 class="m-4">Bonuses history</h1>
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Percent of annual bonus</th>
+    </tr>
+    <tr *ngFor="let bonus of bonusesHistory">
+      <td>{{bonus.date}}</td>
+      <td>{{bonus.amount}} PLN</td>
+      <td>{{bonus.percent}}%</td>
+    </tr>
+  </table>
+</div>

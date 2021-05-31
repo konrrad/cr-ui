@@ -1,0 +1,19 @@
+<div id="individualContracts" [hidden]="this.isHidden" class="container text-center">
+  <h1 class="m-4" *ngIf="contracts.length != 0">{{contracts[0].name}} {{contracts[0].surname}}</h1>
+  <table class="table table-bordered">
+    <tr class="table-light">
+      <th class="left-align" scope="col">Contract type</th>
+      <th class="right-align" scope="col">Contract start date</th>
+      <th class="right-align" scope="col">Contract end date</th>
+    </tr>
+    <tr class="table-light" *ngFor="let contract of contracts">
+      <td class="left-align">{{contract.type}}</td>
+      <td class="right-align">{{contract.startDate}}</td>
+      <td class="right-align">{{contract.endDate}}</td>
+    </tr>
+  </table>
+  <button type="button" class="btn btn-sm btn-primary" (click)="this.isHidden = !this.isHidden">
+    Close
+  </button>
+</div>
+

@@ -1,0 +1,40 @@
+<div class="container text-center">
+  <h1 class="m-4">All your vacations</h1>
+  <table class="table table-striped">
+    <tbody>
+      <tr class="bg-dark text-white">
+        <th class="right-align" scope="col">Start Date</th>
+        <th class="right-align" scope="col">End Date</th>
+        <th class="left-align" scope="col">Type</th>
+        <th class="left-align" scope="col">Reason</th>
+        <th class="left-align" scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+      <tr *ngFor="let vacation of vacations">
+        <td class="right-align">{{vacation.startDate}}</td>
+        <td class="right-align">{{vacation.endDate}}</td>
+        <td class="left-align">{{vacation.vacationType}}</td>
+        <td class="left-align">{{vacation.reason}}</td>
+        <td [ngClass]=" vacation.status == 'ACCEPTED' ? 'table-success' :
+        (vacation.status == 'REJECTED' ? 'table-danger' : null)" class="left-align">{{vacation.status}}
+        </td>
+        <td>
+          <button *ngIf="vacation.status == 'ACCEPTED'" type="button" class="btn btn-sm btn-dark"
+                  (click)="generateDocument(vacation.id, $event);">
+            Generate Document
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h2>You have {{this.totalDays}} vacation days in total</h2>
+      </div>
+      <div class="col-sm">
+        <h2>You used {{this.usedDays}} of those days</h2>
+      </div>
+    </div>
+  </div>
+</div>

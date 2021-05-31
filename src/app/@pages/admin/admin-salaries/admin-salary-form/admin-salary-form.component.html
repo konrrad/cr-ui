@@ -1,0 +1,31 @@
+<form [hidden]="this.isHidden">
+  <h2>Edit/Add salary</h2>
+  <div class="form-group row">
+    <label for="inputStartDate" class="col-sm-2 col-form-label">Start date</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" id="inputStartDate" [value]="salary.startDate" [(ngModel)]="salary.startDate"
+             name="startDate">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEndDate" class="col-sm-2 col-form-label">End date</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" id="inputEndDate" [value]="salary.endDate" [(ngModel)]="salary.endDate"
+             name="endDate">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputSalary" class="col-sm-2 col-form-label">Salary</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputSalary" [value]="salary.salary" [(ngModel)]="salary.salary"
+             name="salary">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div style="display:inline;" class="col-auto">
+      <button (click)="this.isHidden = !this.isHidden" style="margin-right: 12px" class="btn btn-secondary">Cancel</button>
+      <button (click)="addEditSalary()" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+

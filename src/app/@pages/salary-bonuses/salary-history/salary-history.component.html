@@ -1,0 +1,6 @@
+<div class="container-fluid text-center">
+  <h1>Salary information</h1>
+  <ng-container *ngIf="salaries$|async as salaries">
+    <treetable [tree]="salaries" [options]="opts"></treetable>
+  </ng-container>
+</div>

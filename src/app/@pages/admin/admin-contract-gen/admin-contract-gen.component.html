@@ -1,0 +1,33 @@
+<div id="contractGenerator" [hidden]="this.isHidden" class="container text-center">
+  <h1 class="m-4">Contract generation</h1>
+  <form id="contract-form" (ngSubmit)="onSubmit()">
+    <div class="form-group col-auto left-align">
+      <label for="employeeSelect">Select employee</label>
+      <select
+        name="employeeSelect"
+        id="employeeSelect"
+        class="form-control"
+        [(ngModel)]="selectedEmployee">
+        <option *ngFor="let employee of employees" [ngValue]="employee">{{ employee.name+" "+ employee.surname }}</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="auxEmpData">AdditionalEmployeeData</label>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" id="auxEmpData" placeholder="Additional employee data" [(ngModel)]="auxEmpData" name="additionalData" wrap="soft">
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="sr-only" for="conditions">Conditions</label>
+      <div class="input-group mb-2">
+        <textarea type="text" class="form-control" id="conditions" placeholder="Conditions" [(ngModel)]="conditions" name="conditions" wrap="soft" maxlength="700"></textarea>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <div style="display:inline;" class="col-auto">
+        <button (click)="this.isHidden = !this.isHidden" style="margin-right: 12px" type="submit" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

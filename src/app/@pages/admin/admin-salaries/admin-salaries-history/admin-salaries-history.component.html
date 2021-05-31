@@ -1,0 +1,15 @@
+<div class="container-fluid text-center">
+  <h1>Salary history</h1>
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Salary</th>
+    </tr>
+    <tr *ngFor="let salary of salaries">
+      <td>{{salary.startDate}}</td>
+      <td>{{salary.endDate}}</td>
+      <td>{{salary.salary}} PLN</td>
+    </tr>
+  </table>
+</div>

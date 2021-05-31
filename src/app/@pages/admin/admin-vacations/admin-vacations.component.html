@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container text-center">
+  <h1 class="m-4">All vacations list</h1>
+  <table class="table table-striped">
+    <tbody>
+      <tr class="bg-dark text-white">
+        <th class="left-align" scope="col">Full Name</th>
+        <th class="right-align" scope="col">Start Date</th>
+        <th class="right-align" scope="col">End Date</th>
+        <th class="left-align" scope="col">Type</th>
+        <th class="left-align" scope="col">Reason</th>
+        <th class="left-align" scope="col">Status</th>
+        <th class="left-align" scope="col">Action</th>
+      </tr>
+      <tr *ngFor="let vacation of holidays">
+        <td class="left-align">{{vacation.employeeName}} {{vacation.employeeSurname}}</td>
+        <td class="right-align">{{vacation.startDate}}</td>
+        <td class="right-align">{{vacation.endDate}}</td>
+        <td class="left-align">{{vacation.vacationType}}</td>
+        <td class="left-align">{{vacation.reason}}</td>
+        <td [ngClass]=" vacation.status == 'ACCEPTED' ? 'table-success' :
+        (vacation.status == 'REJECTED' ? 'table-danger' : null)" class="left-align">{{vacation.status}}
+        </td>
+        <td *ngIf="vacation.status == 'PENDING'" class="p-2">
+          <button style="margin-right: 2px" type="button" class="btn btn-success btn-sm"
+                  (click)="changeStatus(vacation.id, vacation.status, this.statuses.ACCEPTED, $event);">
+            Accept
+          </button>
+          <button type="button" class="btn btn-danger btn-sm"
+                  (click)="changeStatus(vacation.id, vacation.status, this.statuses.REJECTED, $event);">
+            Reject
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,4 @@
+{
+  "localProxy": "http://localhost:8080",
+  "stageProxy": "http://localhost:8080"
+}
