@@ -17,7 +17,7 @@ export class ApiUrlInterceptor implements HttpInterceptor {
   }
 
   private prepareUrl(url: string): string {
-    url = this.isAbsoluteUrl(url) ? url : this.apiUrl + '/' + url;
+    url = this.isAbsoluteUrl(url) ? url : this.apiUrl + '/' + url.substr(4);
     return url.replace(/([^:]\/)\/+/g, '$1');
   }
 }
