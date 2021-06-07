@@ -1,0 +1,16 @@
+<form [hidden]="this.isHidden">
+  <h2>Choose quotient</h2>
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" [value]="percent.name" [(ngModel)]="percent.name"
+             name="name">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div style="display:inline;" class="col-auto">
+      <button (click)="this.isHidden = !this.isHidden" style="margin-right: 12px" class="btn btn-secondary">Cancel</button>
+      <button (click)="addEditEmployee()" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
